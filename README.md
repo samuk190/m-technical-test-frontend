@@ -88,6 +88,18 @@ Protects `/dashboard` by redirecting unauthenticated users.
 
 ---
 
+## 🔢 Setup
+```bash
+# 1. Clone the project
+$ git clone https://github.com/samuk190/m-technical-test-frontend.git
+$ cd m-technical-test-frontend
+
+# 2. Install dependencies
+$ npm install
+
+```
+
+
 ## 🌐 Variáveis de Ambiente / Environment Variables
 
 Crie um `.env.local`:
