@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Painel Administrativo - Frontend / Admin Panel - Frontend
 
-## Getting Started
+> Interface de gerenciamento de usuários construída com Next.js
+> User management interface built with Next.js
 
-First, run the development server:
+---
+
+## 🇧🇷 Funcionalidades
+- Login com persistência de token (`localStorage` + `document.cookie`)
+- Registro de usuário com validação
+- Listagem de usuários
+- Edição com validações de e-mail e senha
+- Exclusão com confirmação
+- Logout funcional
+- Middleware de proteção de rotas
+- Tema escuro com texto branco
+- Integração com backend via Axios
+- Interceptor de requisições com JWT
+- Testes unitários com Jest e React Testing Library
+- Cobertura de testes >85%
+
+## 🇺🇸 Features
+- Login with token persistence (`localStorage` + `document.cookie`)
+- User registration with form validation
+- User list with full CRUD
+- User edit page with email/password validation
+- Confirmed user deletion
+- Functional logout
+- Route protection via middleware
+- Dark theme with white text
+- Backend integration using Axios
+- JWT request interceptor
+- Unit tests with Jest & React Testing Library
+- Test coverage above 85%
+
+---
+
+## 🛠️ Tecnologias / Technologies
+
+- Next.js 14 (App Router)
+- TypeScript
+- TailwindCSS
+- Axios
+- React Query
+- Jest
+- React Testing Library
+
+---
+
+## 📁 Estrutura de Pastas / Folder Structure
+
+```
+src/
+├── app/
+│   ├── login/
+│   ├── register/
+│   ├── dashboard/
+│   │   └── users/
+│   │       ├── new/
+│   │       └── [id]/
+│   └── lib/
+│       └── api.ts
+├── types/
+│   └── user.ts
+test-utils/
+  └── mock-router.ts
+__tests__/
+```
+
+---
+
+## 🧪 Testes / Tests
+
+```bash
+npm run test
+npm run test:coverage
+```
+
+A cobertura é superior a 85%.
+Coverage is above 85%.
+
+---
+
+## 🔐 Middleware
+
+Protege a área `/dashboard` redirecionando usuários não autenticados.
+Protects `/dashboard` by redirecting unauthenticated users.
+
+---
+
+## 🌐 Variáveis de Ambiente / Environment Variables
+
+Crie um `.env.local`:
+Create a `.env.local` file:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+---
+
+## 🧪 API Mock Testing
+
+Arquivo `api.ts` testado com cobertura de chamadas e headers.
+`api.ts` is tested for headers and HTTP calls.
+
+---
+
+## 📦 Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✍️ Autor / Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+With 💙 By Samuk190
