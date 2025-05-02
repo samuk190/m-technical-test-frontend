@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { JSX, useState } from 'react'
 import api from '../lib/api'
+import logger from '../lib/logger'
 
 
 export default function LoginPage(): JSX.Element {
@@ -19,7 +20,11 @@ export default function LoginPage(): JSX.Element {
       router.push('/dashboard/users')
     } catch (err) {
       setError('Credenciais inválidas')
-      console.log(err);
+      if (err instanceof Error) {
+        logger.error('Erro ao fazer requisição: ' + err.message)
+      } else {
+        logger.error('Erro ao fazer requisição: ' + JSON.stringify(err))
+      }
     }
   }
 

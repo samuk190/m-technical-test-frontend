@@ -3,6 +3,7 @@
 import { JSX, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '../lib/api'
+import logger from '../lib/logger'
 
 
 export default function RegisterPage(): JSX.Element {
@@ -22,7 +23,11 @@ export default function RegisterPage(): JSX.Element {
       router.push('/login')
     } catch (err) {
       setError('Erro ao registrar')
-      console.log(err);
+      if (err instanceof Error) {
+        logger.error('Erro ao fazer requisição: ' + err.message)
+      } else {
+        logger.error('Erro ao fazer requisição: ' + JSON.stringify(err))
+      }
     }
   }
   return (

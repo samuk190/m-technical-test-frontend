@@ -1,6 +1,7 @@
 'use client'
 
 import api from '@/app/lib/api'
+import logger from '@/app/lib/logger'
 import { useRouter } from 'next/navigation'
 import { JSX, useState } from 'react'
 
@@ -35,7 +36,11 @@ export default function NewUserPage(): JSX.Element {
       router.push('/dashboard/users')
     } catch (err) {
       setError('Erro ao criar')
-      console.log(err);
+      if (err instanceof Error) {
+        logger.error('Erro ao fazer requisição: ' + err.message)
+      } else {
+        logger.error('Erro ao fazer requisição: ' + JSON.stringify(err))
+      }
     }
   }
 

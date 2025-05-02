@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation'
 import { User } from '@/types/user'
 import { JSX } from 'react'
 import api from '@/app/lib/api'
+import logger from '@/app/lib/logger'
+
 
 export default function UsersPage(): JSX.Element {
   const router = useRouter()
@@ -31,7 +33,11 @@ export default function UsersPage(): JSX.Element {
       queryClient.invalidateQueries({ queryKey: ['users'] })
     } catch (err) {
       alert('Erro ao remover usuário')
-      console.log(err);
+      if (err instanceof Error) {
+        logger.error('Erro ao fazer requisição: ' + err.message)
+      } else {
+        logger.error('Erro ao fazer requisição: ' + JSON.stringify(err))
+      }
     }
   }
 
